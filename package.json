@@ -1,0 +1,19 @@
+{
+  "name": "proyecto_autos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanButronOtero/proyecto_autos.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DanButronOtero/proyecto_autos/issues"
+  },
+  "homepage": "https://github.com/DanButronOtero/proyecto_autos#readme"
+}
