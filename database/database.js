@@ -6,9 +6,9 @@ const connection = mysql.createConnection({
     password: constants.password,
     database: constants.database
 });
-connection.connect(function(err) {
+connection.connect((err) => {
     if (err) throw err;
 });
 
 
-module.exports = connection;
+module.exports = { connection };

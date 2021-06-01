@@ -1,0 +1,22 @@
+<%- include('templates/header_login'); -%>
+
+    <div class="row">
+        <div class="col-md-5 col-xs-12">
+            <div class="section-header style-2">
+                <h3 class="section-title">Iniciar Sesión</h3>
+            </div>
+            <form action="/login" class="contact-form" method="POST">
+                <label class="text-light p-2" for="usuario">Usuario</label>
+                <input type="text" name="usuario" id="usuario">
+
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" value="">
+
+                <input type="submit" value="Iniciar">
+
+            </form>
+
+        </div>
+    </div>
+
+    <%- include('templates/footer_login'); -%>

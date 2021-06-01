@@ -1,0 +1,563 @@
+<!doctype html>
+<!--[if IE 6 ]><html lang="en-us" class="ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en-us" class="ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en-us" class="ie8"> <![endif]-->
+<!--[if (gt IE 7)|!(IE)]><!-->
+<html lang="en-us">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+
+    <title>GRAPE - Responsive Bootstrap 3 App Landing Template</title>
+
+    <meta name="description" content="GRAPE is a Responsive OnePage Multipurpose Church Website Template based on Bootstrap 3.3.7, HTML5 and CSS3. It is also suitable for Non-Profit, Charity, Prayer Group and Fundraising Organisation">
+    <meta name="author" content="CodePassenger">
+    <meta name="copyright" content="CodePassenger">
+    <meta name="generator" content="Documenter v2.0 http://rxa.li/documenter">
+    <meta name="date" content="2015-07-22T00:00:00+02:00">
+
+    <link rel="stylesheet" href="assets/css/documenter_style.css" media="all">
+    <link rel="stylesheet" href="assets/js/google-code-prettify/prettify.css" media="screen">
+    <script src="assets/js/google-code-prettify/prettify.js"></script>
+
+    <script src="assets/js/jquery.js"></script>
+
+    <script src="assets/js/jquery.scrollTo.js"></script>
+    <script src="assets/js/jquery.easing.js"></script>
+
+    <script>
+        document.createElement('section');
+        var duration = '988',
+            easing = 'swing';
+
+    </script>
+    <script src="assets/js/script.js"></script>
+
+    <style>
+        html {
+            background-color: #FFFFFF;
+            color: #383838;
+        }
+        
+         ::-moz-selection {
+            background: #444444;
+            color: #DDDDDD;
+        }
+        
+         ::selection {
+            background: #444444;
+            color: #DDDDDD;
+        }
+        
+        #documenter_sidebar #documenter_logo {
+            background-image: url(assets/images/logo.png);
+        }
+        
+        a {
+            color: #0000FF;
+        }
+        
+        .btn {
+            border-radius: 3px;
+        }
+        
+        .btn-primary {
+            background-image: -moz-linear-gradient(top, #0088CC, #0044CC);
+            background-image: -ms-linear-gradient(top, #0088CC, #0044CC);
+            background-image: -webkit-gradient(linear, 0 0, 0 0088CC%, from(#DDDDDD), to(#0044CC));
+            background-image: -webkit-linear-gradient(top, #0088CC, #0044CC);
+            background-image: -o-linear-gradient(top, #0088CC, #0044CC);
+            background-image: linear-gradient(top, #0088CC, #0044CC);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0088CC', endColorstr='#0044CC', GradientType=0);
+            border-color: #0044CC #0044CC #bfbfbf;
+            color: #FFFFFF;
+        }
+        
+        .btn-primary:hover,
+        .btn-primary:active,
+        .btn-primary.active,
+        .btn-primary.disabled,
+        .btn-primary[disabled] {
+            border-color: #0088CC #0088CC #bfbfbf;
+            background-color: #0044CC;
+        }
+        
+        hr {
+            border-top: 1px solid #EBEBEB;
+            border-bottom: 1px solid #FFFFFF;
+        }
+        
+        #documenter_sidebar,
+        #documenter_sidebar ul a {
+            background-color: #DDDDDD;
+            color: #222222;
+        }
+        
+        #documenter_sidebar ul a {
+            -webkit-text-shadow: 1px 1px 0px #EEEEEE;
+            -moz-text-shadow: 1px 1px 0px #EEEEEE;
+            text-shadow: 1px 1px 0px #EEEEEE;
+        }
+        
+        #documenter_sidebar ul {
+            border-top: 1px solid #AAAAAA;
+        }
+        
+        #documenter_sidebar ul a {
+            border-top: 1px solid #EEEEEE;
+            border-bottom: 1px solid #AAAAAA;
+            color: #444444;
+        }
+        
+        #documenter_sidebar ul a:hover {
+            background: #444444;
+            color: #DDDDDD;
+            border-top: 1px solid #444444;
+        }
+        
+        #documenter_sidebar ul a.current {
+            background: #444444;
+            color: #DDDDDD;
+            border-top: 1px solid #444444;
+        }
+        
+        #documenter_copyright {
+            display: block !important;
+            visibility: visible !important;
+        }
+
+    </style>
+
+</head>
+
+<body class="documenter-project-ultimate-responsive-contact-form-html5-bootstrap">
+    <div id="documenter_sidebar">
+        <a href="#documenter_cover" id="documenter_logo"></a>
+        <ul id="documenter_nav">
+            <li><a class="current" href="#documenter_cover">Hello</a></li>
+
+            <li><a href="#introduction" title="Introduction">Introduction</a></li>
+            <li><a href="#features" title="Features">Features</a></li>
+            <li><a href="#html_structure" title="HTML Structure">HTML Structure</a></li>
+            <li><a href="#css_files_and_structure" title="CSS Files and Structure">CSS Files and Structure</a></li>
+            <li><a href="#javascript_and_ajax" title="JavaScript and Ajax">JavaScript and Ajax</a></li>
+            <li><a href="#php_files_and_customization" title="PHP Files and Customization">PHP Files and Customization</a></li>
+            <li><a href="#changelog" title="Changelog">Changelog</a></li>
+            <li><a href="#source_credits" title="Source & Credits">Source & Credits</a></li>
+            <li><a href="#thank_you" title="Thank You">Thank You</a></li>
+
+        </ul>
+        <div id="documenter_copyright">Copyright &copy; CodePassenger 2017<br> made with the <a href="#">Documenter v2.0</a>
+        </div>
+    </div>
+    <div id="documenter_content">
+        <section id="documenter_cover">
+            <h1>GRAPE - Multipurpose App Landing Template</h1>
+            <h2>Responsive BootStrap 3 HTML5 App Landing Template</h2>
+            <div id="documenter_buttons">
+                <a href="http://www.codepassenger.com" class="btn btn-primary btn-large">CodePassenger</a> <a href="https://shapebootstrap.net/profile/codepassenger/items" class="btn btn-large">Portfolio</a>
+            </div>
+            <hr>
+            <ul>
+                <li>created: 07/29/2017</li>
+                <li>latest update: 07/29/2017</li>
+                <li>by: CodePassenger</li>
+                <li>
+                    <a href=""></a>
+                </li>
+                <li>email: <a href="mailto:&#99;&#111;&#100;&#101;&#112;&#97;&#115;&#115;&#101;&#110;&#103;&#101;&#114;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#99;&#111;&#100;&#101;&#112;&#97;&#115;&#115;&#101;&#110;&#103;&#101;&#114;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a></li>
+            </ul>
+            <p>Thank you for purchasing our product. If you have any questions that are beyond the scope of this help file, please feel free to email via my user page contact form <a href="https://shapebootstrap.net/profile/codepassenger/">here</a>. Thanks so much!</p>
+        </section>
+
+        <section id="introduction">
+            <div class="page-header">
+                <h3>Introduction</h3>
+                <hr class="notop">
+            </div>
+            <p>
+                <strong>Grape</strong> is Responsive Bootstrap 3 App Landing Template built with Bootstrap 3.3.7, HTML5 and CSS3. Well Organized and valid Code.</p>
+        </section>
+        <section id="features">
+            <div class="page-header">
+                <h3>Features</h3>
+                <hr class="notop">
+            </div>
+            <ul>
+                <li>Fully Responsive Design</li>
+                <li>HTML5 and CSS3</li>
+                <li>Twitter Bootstrap and SASS</li>
+                <li>3 Home Variations</li>
+                <li>Blog and Blog Single Page Included</li>
+                <li>Working Ajax Contact Form</li>
+                <li>Working Mailchimp Subscription</li>
+                <li>Google Fonts: <a href="http://www.google.com/fonts/">Poppins</a> and <a href="http://www.google.com/fonts/">Open Sans</a></li>
+                <li>FontAwesome Icons</li>
+                <li>Elegant Theme Icon</li>
+                <li>Plyr Video</li>
+                <li>Google Map Intregrated</li>
+                <li>Clean &amp; Well Commented Code</li>
+                <li>Well Documented</li>
+                <li>Cross Browser Compatible - IE9+, Chrome, Firefox, Safari, Opera</li>
+            </ul>
+        </section>
+        <section id="html_structure">
+            <div class="page-header">
+                <h3>HTML Structure</h3>
+                <hr class="notop">
+            </div>
+            <p>
+                <strong>Grape</strong> is fully responsive HTML5 Template followed HTML5 Structure. Every section is seperated with Comments. We maintain all Coding Procedure.</p>
+            <p>
+                <strong>Head Section Structure:</strong> Here is the example code of
+
+                <b>&lt;head&gt;</b> section</p>
+            <p>
+                &nbsp;</p>
+            <pre class="prettyprint lang-html linenums">
+
+&#x3C;!DOCTYPE html&#x3E;
+&#x3C;html lang=&#x22;en&#x22;&#x3E;
+
+&#x3C;head&#x3E;
+    &#x3C;!-- Metas --&#x3E;
+    &#x3C;meta charset=&#x22;UTF-8&#x22;&#x3E;
+    &#x3C;meta http-equiv=&#x22;X-UA-Compatible&#x22; content=&#x22;IE=edge&#x22;&#x3E;
+    &#x3C;meta name=&#x22;viewport&#x22; content=&#x22;width=device-width, initial-scale=1.0&#x22;&#x3E;
+    &#x3C;title&#x3E;GRAPE - Multipurpose App Landing Template&#x3C;/title&#x3E;
+    &#x3C;meta name=&#x22;description&#x22; content=&#x22;GRAPE &#x2013; Multipurpose App Landing HTML Template is a modern, 
+	unique and clean design for your Business Purpose. Users will love Your site because it gives them a unique user experience.&#x22;&#x3E;
+
+    &#x3C;!-- External CSS --&#x3E;
+    &#x3C;link rel=&#x22;stylesheet&#x22; href=&#x22;assets/css/bootstrap.min.css&#x22;&#x3E;
+    &#x3C;link rel=&#x22;stylesheet&#x22; href=&#x22;assets/css/font-awesome.min.css&#x22;&#x3E;
+    &#x3C;link rel=&#x22;stylesheet&#x22; href=&#x22;assets/css/et-line.css&#x22;&#x3E;
+    &#x3C;link rel=&#x22;stylesheet&#x22; href=&#x22;assets/css/magnific-popup.css&#x22;&#x3E;
+    &#x3C;link rel=&#x22;stylesheet&#x22; href=&#x22;assets/css/animate.css&#x22;&#x3E;
+    &#x3C;link rel=&#x22;stylesheet&#x22; href=&#x22;assets/css/owl.carousel.css&#x22;&#x3E;
+    &#x3C;link rel=&#x22;stylesheet&#x22; href=&#x22;assets/css/owl.transitions.css&#x22;&#x3E;
+    &#x3C;link rel=&#x22;stylesheet&#x22; href=&#x22;assets/css/plyr.css&#x22;&#x3E;
+
+    &#x3C;!-- Custom CSS --&#x3E;
+    &#x3C;link rel=&#x22;stylesheet&#x22; href=&#x22;css/style.css&#x22;&#x3E;
+    &#x3C;link rel=&#x22;stylesheet&#x22; href=&#x22;css/responsive.css&#x22;&#x3E;
+
+    &#x3C;!-- Google font --&#x3E;
+    &#x3C;link href=&#x22;https://fonts.googleapis.com/css?family=Poppins:300,400%7CUbuntu:400,700%7COpen+Sans&#x22; rel=&#x22;stylesheet&#x22;&#x3E;
+
+    &#x3C;!-- Favicon --&#x3E;
+    &#x3C;link rel=&#x22;icon&#x22; href=&#x22;images/favicon.png&#x22;&#x3E;
+    &#x3C;link rel=&#x22;apple-touch-icon&#x22; href=&#x22;images/apple-touch-icon.png&#x22;&#x3E;
+    &#x3C;link rel=&#x22;apple-touch-icon&#x22; sizes=&#x22;72x72&#x22; href=&#x22;images/icon-72x72.png&#x22;&#x3E;
+    &#x3C;link rel=&#x22;apple-touch-icon&#x22; sizes=&#x22;114x114&#x22; href=&#x22;images/icon-114x114.png&#x22;&#x3E;
+
+    &#x3C;!--[if lt IE 9]&#x3E;
+      &#x3C;script src=&#x22;assets/js/html5shiv.min.js&#x22;&#x3E;&#x3C;/script&#x3E;
+      &#x3C;script src=&#x22;assets/js/respond.min.js&#x22;&#x3E;&#x3C;/script&#x3E;
+    &#x3C;![endif]--&#x3E;
+&#x3C;/head&#x3E;
+</pre>
+        </section>
+        <section id="css_files_and_structure">
+            <div class="page-header">
+                <h3>CSS Files and Structure</h3>
+                <hr class="notop">
+            </div>
+            <p>
+                We are using latest CSS coding standard. Custom Style writeen into style.css which is override Bootstrap style somewhere else. </p>
+            <div>
+                <strong>CSS Files included:</strong></div>
+            <ul>
+                <li>
+                    Bootstrap CSS</li>
+                <li>Animate CSS</li>
+                <li>Font Awesome CSS</li>
+                <li>ET Icon CSS</li>
+                <li>Plyr CSS</li>
+                <li>
+                    Magnific POPUP CSS</li>
+                <li>
+                    Owl Carousel CSS</li>
+                <li>
+                    Custom CSS</li>
+            </ul>
+            <p>
+                <strong>style.css</strong> file contains all of the specific styling for the template. Here is an example of general style which is specify using following label:</p>
+            <pre class="prettyprint lang-css linenums">
+/*------------------------------------------------------
+Table of content
+--------------------------------------------------------
+Preloader
+General
+Buttons
+Navbar
+Banner
+Intro
+Features
+Video Description
+Screenshot
+Pricing
+Support
+Testimonials
+Client Logo
+Subscription
+Footer
+Blog Pages
+------------------------------------------------------*/</pre>
+            <p>
+                If you would like to edit a specific section of the site, simply find the appropriate label in the CSS file, and then scroll down until you find the appropriate style that needs to be edited. And our template css are the generated result of several sass files located on the scss folder under root directory. If you are familiar with sass then you can edit them on scss file and regenerate them to our main css file.</p>
+            <p>
+                If you change the banner section, find the following section in the style sheet:</p>
+            <pre class="prettyprint lang-css linenums">
+/*----------------------------------------
+Banner Styles
+----------------------------------------*/
+.banner-item {
+  height: 768px;
+  background-position: center top;
+  background-attachment: fixed;
+  background-size: cover;
+  position: relative;
+  color: #ffffff;
+  overflow: hidden;
+}
+.banner-item:before {
+  content: &#x22;&#x22;;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(17, 17, 17, 0.8);
+  z-index: 1;
+}
+
+.banner-1 {
+  background-image: url(../images/banner/1.jpg);
+}
+
+.banner-content {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 0;
+  right: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  margin-top: 50px;
+}
+.banner-content .banner-text-content {
+  margin-top: 100px;
+}
+.banner-content .banner-title {
+  font-size: 4.8rem;
+  font-weight: 300;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+.banner-content .banner-text {
+  font-size: 2.2rem;
+  margin-top: 22px;
+  margin-bottom: 0;
+}
+.banner-content .button-group {
+  margin-top: 34px;
+}
+.banner-content .btn-border {
+  color: #ffffff;
+}
+.banner-content .banner-registration {
+  background-color: rgba(17, 17, 17, 0.55);
+  max-width: 400px;
+  float: right;
+  width: 100%;
+  padding: 40px;
+}
+.banner-content .banner-registration input:not([type=radio]):not([type=checkbox]):not([type=range]),
+.banner-content .banner-registration textarea {
+  line-height: 30px !important;
+  background-color: rgba(192, 57, 43, 0.22);
+}
+.banner-content .banner-registration .btn {
+  width: 100%;
+}
+
+.banner.style-2 .banner-content {
+  top: 0;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+.banner.style-2 .banner-hero-image {
+  margin-top: 50px;
+}
+.banner.style-3 .banner-text-content {
+  margin-top: 0;
+}
+
+.right-part {
+  text-align: right;
+}</pre>
+            <p>
+                &nbsp;</p>
+        </section>
+        <section id="javascript_and_ajax">
+            <div class="page-header">
+                <h3>JavaScript and Ajax</h3>
+                <hr class="notop">
+            </div>
+            <p>
+                Grape imports following Javascript files.</p>
+            <ol>
+                <li>
+                    jQuery</li>
+                <li>Bootstrap JS</li>
+                <li>
+                    Custom scripts</li>
+                <li>jQuery Nav JS</li>
+                <li>Steller JS</li>
+                <li>Owl Carousel JS</li>
+                <li>
+                    Google Map Api</li>
+                <li>
+                    Maginific POPUP</li>
+                <li>Plyr JS</li>
+                <li>jQuery Ajaxchimp JS</li>
+                <li>Local Scroll JS</li>
+                <li>WOW JS etc...</li>
+            </ol>
+            <p>
+                <span style="color: rgb(56, 56, 56); font-family: Arial, verdana, arial, sans-serif; line-height: 18px;">All code are beautifully written. You can customize easily. Just look the js code.</span><br> Example: If you want to Customize Contact Form Ajax settings, just find the following block into the custom.js and change what you need:<br> &nbsp;
+            </p>
+            <pre class="prettyprint lang-js linenums">
+    /*-----------------------------------
+    Contact Form
+    -----------------------------------*/
+    // Function for email address validation
+    function isValidEmail(emailAddress) {
+        var pattern = new RegExp(/^((&#x22;[\w-\s]+&#x22;)|([\w-]+(?:\.[\w-]+)*)|(&#x22;[\w-\s]+&#x22;)([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})
+		\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.)
+		{2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+
+        return pattern.test(emailAddress);
+
+    }
+    $(&#x22;#contactForm&#x22;).on(&#x27;submit&#x27;, function (e) {
+        e.preventDefault();
+        var data = {
+            name: $(&#x22;#name&#x22;).val(),
+            email: $(&#x22;#email&#x22;).val(),
+            subject: $(&#x22;#subject&#x22;).val(),
+            message: $(&#x22;#message&#x22;).val()
+        };
+
+        if (isValidEmail(data[&#x27;email&#x27;]) &#x26;&#x26; (data[&#x27;message&#x27;].length &#x3E; 1) &#x26;&#x26; (data[&#x27;name&#x27;].length &#x3E; 1) &#x26;&#x26; (data[&#x27;subject&#x27;].length &#x3E; 1)) {
+            $.ajax({
+                type: &#x22;POST&#x22;,
+                url: &#x22;sendmail.php&#x22;,
+                data: data,
+                success: function () {
+                    $(&#x27;#contactForm .input-success&#x27;).delay(500).fadeIn(1000);
+                    $(&#x27;#contactForm .input-error&#x27;).fadeOut(500);
+                }
+            });
+        } else {
+            $(&#x27;#contactForm .input-error&#x27;).delay(500).fadeIn(1000);
+            $(&#x27;#contactForm .input-success&#x27;).fadeOut(500);
+        }
+
+        return false;
+    });</pre>
+            <p>
+                &nbsp;</p>
+        </section>
+        <section id="php_files_and_customization">
+            <div class="page-header">
+                <h3>PHP Files and Customization</h3>
+                <hr class="notop">
+            </div>
+            <p>
+                We followed the standard technique and latest PHP coding structure.&nbsp;</p>
+            <p>
+                <strong>PHP File included:</strong></p>
+            <ol>
+                <li>
+                    sendmail.php</li>
+            </ol>
+            <p>
+                <strong>Mail Configuration:</strong></p>
+            <p>
+                In sendmail.php, find the following line:</p>
+            <pre class="prettyprint lang-php linenums">
+// Email will be send
+
+$to = &quot;&#99;&#111;&#100;&#101;&#112;&#97;&#115;&#115;&#101;&#110;&#103;&#101;&#114;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;&quot;; 
+// Change with your email address</pre>
+            <p>
+                Replace the&nbsp;<span style="line-height: 19px;"><strong>&#99;&#111;&#100;&#101;&#112;&#97;&#115;&#115;&#101;&#110;&#103;&#101;&#114;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</strong> to your receiver email address.</span></p>
+
+        </section>
+        <section id="changelog">
+            <div class="page-header">
+                <h3>Changelog</h3>
+                <hr class="notop">
+            </div>
+            <div>
+                /*&nbsp;</div>
+            <pre class="prettyprint lang-css linenums">
+/*=======================================================================
+* Template Name: Grape
+* Template URI: http://codepassenger.com/html/grape
+* Author: CodePassenger
+* Author URI: http://codepassenger.com/
+* Description: Responsive Bootstrap 3 App Landing Template
+* Version: 1.0
+* License: GPL v2 or later
+* License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+* Tags: html, template, app landing, marketing, grape, codepassenger
+======================================================================= */</pre>
+        </section>
+        <section id="source_credits">
+            <div class="page-header">
+                <h3>Source &amp; Credits</h3>
+                <hr class="notop">
+            </div>
+            <ul>
+                <li><a href="http://pixabay.com/">PixaBay</a></li>
+                <li><a href="http://getbootstrap.com/">Twitter Bootstrap</a></li>
+                <li><a href="https://jquery.com/">jQuery Library</a></li>
+                <li><a href="http://www.google.com/fonts/">Google Fonts</a></li>
+                <li>
+                    <a href="http://fontawesome.io/icons" target="_blank">Fontawesome</a></li>
+                <li>
+                    <a href="https://maps.googleapis.com/maps/api/js?v=3.exp" target="_blank">Google Map API</a></li>
+                <li><a href="https://github.com/flesler/jquery.localScroll">localScroll</a>
+                </li>
+                <li><a href="https://github.com/davist11/jQuery-One-Page-Nav">One Page Nav</a>
+                </li>
+                <li><a href="https://github.com/dimsemenov/Magnific-Popup">Magnific POPUP</a>
+                </li>
+                <li><a href="http://www.owlcarousel.owlgraphic.com/">Owl Carousel 2</a>
+                </li>
+                <li><a href="https://github.com/matthieua/WOW">WOW JS</a></li>
+            </ul>
+        </section>
+        <section id="thank_you">
+            <div class="page-header">
+                <h3>Thank You</h3>
+                <hr class="notop">
+            </div>
+            <section id="thank_you" style="padding-top: 70px;">
+                <p style="margin: 18px 0px; padding: 0px; border: 0px; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; line-height: 1.5em;">
+                    <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; font-weight: 700; font-family: Arial, verdana, arial, sans-serif; vertical-align: baseline; color: rgb(56, 56, 56);">Once again, thank you so much for purchasing this product. As I said at the beginning, I&#39;d be glad to help you if you have any questions relating to this product. No guarantees, but I&#39;ll do my best to assist. If you have a more general question relating to this product on ShapeBootstrap, you might consider visiting the forums and asking your question in the &quot;Item Discussion&quot; section.</span></p>
+                <p style="margin: 18px 0px; padding: 0px; border: 0px; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; line-height: 1.5em;">
+                    <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; font-weight: 700; font-family: Arial, verdana, arial, sans-serif; vertical-align: baseline; color: rgb(56, 56, 56);"><span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; font-style: inherit; font-family: inherit; vertical-align: baseline;">CodePassenger Team</span></span>
+                </p>
+            </section>
+        </section>
+
+    </div>
+</body>
+
+</html>
