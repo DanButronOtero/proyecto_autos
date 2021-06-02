@@ -14,10 +14,9 @@ router.get('/coches', (req, res) => {
 
 });
 router.post('/coches/delete', (req, res) => {
-    console.log(req.body.id);
-    console.log(Object.keys(req.body));
+
     let query = `update coches set estado_logico=0 WHERE id = '${req.body.id}';`;
-    console.log(query);
+
     conn.query(query, (error, results, fields) => {
         res.redirect('/coches');
     });
@@ -39,7 +38,7 @@ router.get('/coches/update', (req, res) => {
 router.post('/coches/update', (req, res) => {
 
     let query = `update coches set matricula ="${req.body.matricula.trim()}",no_motor="${req.body.no_motor.trim()}",id_modelo="${req.body.id_modelo.trim()}" WHERE id = '${req.body.id}';`;
-    console.log(query);
+
     conn.query(query, (error, results, fields) => {
         res.redirect('/coches');
     });
@@ -55,9 +54,9 @@ router.get('/coches/create', (req, res) => {
 router.post('/coches/create', (req, res) => {
 
     let query = `insert into coches values("","${req.body.matricula}","${req.body.no_motor}","${req.body.id_modelo}",1) ;`;
-    console.log(query);
+
     conn.query(query, (error, results, fields) => {
-        console.log(results);
+
         res.redirect('/coches');
     });
 })
