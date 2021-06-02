@@ -54,7 +54,6 @@ router.get('/coches/create', (req, res) => {
 router.post('/coches/create', (req, res) => {
 
     let query = `insert into coches values("","${req.body.matricula}","${req.body.no_motor}","${req.body.id_modelo}",1) ;`;
-
     conn.query(query, (error, results, fields) => {
 
         res.redirect('/coches');
