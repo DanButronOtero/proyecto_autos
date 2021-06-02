@@ -1,4 +1,4 @@
-<%- include('../templates/header'); -%>
+<%- include('../../templates/header'); -%>
     <!-- Banner Area -->
     <div id="banner" class="banner style-2">
         <div class="banner-item banner-1 steller-parallax" data-stellar-background-ratio="0.5">
@@ -44,7 +44,7 @@
                                                 <%= registros[i].anio%>
                                             </th>
                                             <th>
-                                                <form action="/coches/edit" method="post">
+                                                <form action="/coches/update" method="GET">
                                                     <button type="submit" class="btn btn-primary" aria-label="Left Align">
                                                         <input type="hidden" name="id" value="<%=registros[i].id  %> ">
                                                         <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
@@ -65,6 +65,12 @@
 
                                         <% } %>
                                 </table>
+                                <div>
+                                    <a class="btn btn-primary" href="/coches/create" role="button">
+                                        <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"> REGISTRAR</span>
+                                    </a>
+
+                                </div>
                             </div>
                         </div>
 
@@ -74,4 +80,4 @@
         </div>
     </div>
     <!-- Banner Area End -->
-    <%- include('../templates/footer'); -%>
+    <%- include('../../templates/footer'); -%>
