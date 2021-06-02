@@ -1,0 +1,39 @@
+<%- include('../../templates/header'); -%>
+    <!-- Banner Area -->
+    <div id="banner" class="banner style-2">
+        <div class="banner-item banner-1 steller-parallax" data-stellar-background-ratio="0.5">
+            <div class="banner-content">
+                <div class="container justify-content-md-center">
+                    <div class="row ">
+                        <div class="col-xs-12">
+                            <div class="banner-text-content text-center wow fadeInUp" data-wow-duration="1.5s">
+                                <h1 class="banner-title ">Edit Coche </h1>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="banner-text-content text-center wow fadeInUp" data-wow-duration="1.5s">
+                                <div class="col-md-5 col-xs-12">
+                                    <form action="/modelos/update" class="contact-form" method="post">
+                                        <input type="hidden" name="id" value="<%= modelo.id %> " required>
+                                        <label for="marca">marca</label>
+                                        <input type="text" name="marca" id="" value="<%= modelo.marca %> " required>
+                                        <label for="modelo">Modelo</label>
+                                        <input type="text" name="modelo" id="modelo" value="<%= modelo.modelo %> " required>
+                                        <label for="anio">Año</label>
+                                        <input type="text" name="anio" id="anio" value="<%= modelo.anio %> " required>
+
+
+                                        <input type="submit" value="actualizar">
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Banner Area End -->
+    <%- include('../../templates/footer'); -%>

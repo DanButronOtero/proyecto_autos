@@ -13,22 +13,21 @@
                         <div class="col-xs-12">
                             <div class="banner-text-content text-center wow fadeInUp" data-wow-duration="1.5s">
                                 <div class="col-md-5 col-xs-12">
-                                    <form action="/coches/create" class="contact-form" method="post">
-                                        <input type="hidden" name="id" value="" required>
-                                        <label for="matricula">matricula</label>
-                                        <input type="text" name="matricula" id="" value="" required>
-                                        <label for="no_motor">Numero de motor</label>
-                                        <input type="text" name="no_motor" id="no_motor" value="" required>
-                                        <label for="id_modelo">Modelo</label>
-                                        <select class="form-control form-control-lg" name="id_modelo" id="id_modelo" required>
-                                        <% for (let i = 0; i < modelo.length; i++) {%>
-                                            <option value="<%= modelo[i].id %>" ><%= modelo[i].marca%> | <%= modelo[i].modelo%> <%= modelo[i].anio%></option>
-                                            
+                                    <script>
+                                        $("#datepicker").datepicker({
+                                            format: "mm-yyyy",
+                                            startView: "months",
+                                            minViewMode: "months"
+                                        });
+                                    </script>
+                                    <form action="/modelos/create" class="contact-form" method="post">
+                                        <label for="marca">Marca</label>
+                                        <input type="text" name="marca" id="" value="" required>
+                                        <label for="modelo">Modelo</label>
+                                        <input type="text" name="modelo" id="modelo" value="" required>
+                                        <label for="anio">Año</label>
+                                        <input type="text" name="anio" id="">
 
-
-                                            <% } %>
-
-                                                </select>
                                         <input type="submit" value="CREAR">
                                     </form>
                                 </div>

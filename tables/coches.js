@@ -6,7 +6,7 @@ const router = Router();
 
 router.get('/coches', (req, res) => {
     let coches;
-    conn.query('select c.id,c.matricula,c.no_motor,c.id_modelo,c.estado_logico,m.marca,m.modelo,m.anio from coches as c INNER JOIN modelo as m on c.id_modelo = m.id ', (error, results, fields) => {
+    conn.query('select c.id,c.matricula,c.no_motor,c.id_modelo,c.estado_logico,m.marca,m.modelo,m.anio from coches as c INNER JOIN modelo as m on c.id_modelo = m.id where estado_logico = 1  order by c.id', (error, results, fields) => {
         coches = results;
         res.render('pages/cruds/coches/coches', { registros: coches });
     });
@@ -16,7 +16,7 @@ router.get('/coches', (req, res) => {
 router.post('/coches/delete', (req, res) => {
     console.log(req.body.id);
     console.log(Object.keys(req.body));
-    let query = `DELETE FROM coches WHERE id = '${req.body.id}';`;
+    let query = `update coches set estado_logico=0 WHERE id = '${req.body.id}';`;
     console.log(query);
     conn.query(query, (error, results, fields) => {
         res.redirect('/coches');
