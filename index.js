@@ -13,9 +13,6 @@ app.use(bodyparser.json());
 app.use('/', express.static('complements'));
 
 
-// app.use((req, res, next) => {
-//     res.status(404).render('pages/404');
-// });
 app.use(require('./tables/general'));
 app.use(require('./tables/coches'));
 app.use(require('./tables/modelos'));
