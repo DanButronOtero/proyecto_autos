@@ -6,6 +6,11 @@ para instalar los modulos unicamente ejecutamos
 npm install
 ```
 
+para correr el servidor podemos usar el comando
+```
+npm test
+```
+
 ```
 📦proyecto_autos
  ┣ 📂complements
