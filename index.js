@@ -14,9 +14,8 @@ app.use('/', express.static('complements'));
 
 
 app.use(require('./tables/general'));
-app.use(require('./tables/coches'));
-app.use(require('./tables/modelos'));
 app.use(require('./tables/puestos'));
+app.use(require('./tables/tipos_u'));
 
 
 app.listen(port, () => {
