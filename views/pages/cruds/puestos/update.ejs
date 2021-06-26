@@ -14,12 +14,14 @@
                             <div class="banner-text-content text-center wow fadeInUp" data-wow-duration="1.5s">
                                 <div class="col-md-5 col-xs-12">
                                     <form action="/puestos/update" class="contact-form" method="post">
-                                        <input type="hidden" name="id" value="<%= puestos.id %> ">
-                                        <label for="nombre">nombre</label>
-                                        <input type="text" value="<%= puestos.nombre %> " name="nombre" id="nombre" required>
-                                        <label for="descripcion">descripcion</label>
-                                        <input type="text" value="<%= puestos.descripcion %>" name="descripcion" id="descripcion" required>
-                                        <input type="submit" value="ACTUALIZAR">
+                                        <input type="hidden" name="id" value="<%= puestos.id %> " required>
+                                        <label for="nombre">Nombre</label>
+                                        <input type="text" name="nombre" id="" value="<%= puestos.nombre %> " required>
+                                        <label for="descripcion">Descripcion</label>
+                                        <input type="text" name="descripcion" id="descripcion" value="<%= puestos.descripcion %> " required>
+                                        
+
+                                        <input type="submit" value="actualizar">
                                     </form>
                                 </div>
 
