@@ -1,0 +1,66 @@
+<%- include('../../templates/header'); -%>
+    <!-- Banner Area -->
+    <div id="banner" class="banner style-2">
+        <div class="banner-item banner-1 steller-parallax" data-stellar-background-ratio="0.5">
+            <div class="banner-content">
+                <div class="container justify-content-md-center">
+                    <div class="row ">
+                        <div class="col-xs-12">
+                            <div class="banner-text-content text-center wow fadeInUp" data-wow-duration="1.5s">
+                                <h1 class="banner-title ">Edit Coche </h1>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="banner-text-content text-center wow fadeInUp" data-wow-duration="1.5s">
+                                <div class="col-md-5 col-xs-12">
+                                    <form action="/coches_venta/update" class="contact-form" method="post">
+                                        <input type="hidden" name="id" value="<%= data.id %> " required>
+
+                                        <label for="id_modelo">Modelo</label>
+                                        <select class="form-control form-control-lg" name="id_modelo" id="id_modelo" required>
+                                        <% for (let i = 0; i < modelo.length; i++) {%>
+
+                                            <%if(modelo[i].id == data.id_modelo){%>
+                                                
+                                                <option value="<%= modelo[i].id %>" selected><%= modelo[i].marca%> | <%= modelo[i].modelo%> <%= modelo[i].anio%></option>
+                                            <%} else {%>
+                                                <option value="<%= modelo[i].id %>" ><%= modelo[i].marca%> | <%= modelo[i].modelo%> <%= modelo[i].anio%></option>
+                                            <%}%>
+
+                                            <% } %>
+
+                                                </select>
+
+                                        <label for="estado">Estado</label>
+                                        <% if(data.estado=='nuevo'){ %>
+                                            <select class="form-control form-control-lg" name="estado" id="estado">
+                                                <option value="nuevo">Nuevo</option>
+                                                <option value="usado">Usado</option>
+                                            </select>
+                                            <% }else { %>
+                                                <select class="form-control form-control-lg" name="estado" id="estado">
+                                                <option value="usado">Usado</option>
+                                                <option value="nuevo">Nuevo</option>
+                                            </select>
+                                                <% } %>
+
+
+                                                    <label for="unidades">Unidades</label>
+                                                    <input type="number" name="unidades" id="unidades" min="1" value="<%= data.unidades %>">
+
+                                                    <label for="precio">Precio</label>
+                                                    <input type="number" name="precio" id="precio" min="1" value="<%= data.precio %>">
+                                                    <input type="submit" value="ACTUALIZAR">
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Banner Area End -->
+    <%- include('../../templates/footer'); -%>

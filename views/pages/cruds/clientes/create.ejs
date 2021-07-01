@@ -1,0 +1,46 @@
+<%- include('../../templates/header'); -%>
+    <!-- Banner Area -->
+    <div id="banner" class="banner style-2">
+        <div class="banner-item banner-1 steller-parallax" data-stellar-background-ratio="0.5">
+            <div class="banner-content">
+                <div class="container justify-content-md-center">
+                    <div class="row ">
+                        <div class="col-xs-12">
+                            <div class="banner-text-content text-center wow fadeInUp" data-wow-duration="1.5s">
+                                <h1 class="banner-title ">Crear Coche </h1>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="banner-text-content text-center wow fadeInUp" data-wow-duration="1.5s">
+                                <div class="col-md-5 col-xs-12">
+                                    <form action="/clientes/create" class="contact-form" method="post">
+                                        <input type="hidden" name="id" value="" required>
+                                        <label for="nombre">nombre</label>
+                                        <input type="text" name="nombre" id="nombre" required>
+
+                                        <label for="apellido_pat">apellido paterno</label>
+                                        <input type="text" name="apellido_pat" id="apellido_pat" required>
+
+                                        <label for="apellido_mat">apellido materno</label>
+                                        <input type="text" name="apellido_mat" id="apellido_mat" required>
+
+                                        <label for="direccion">direccion</label>
+                                        <input type="text" name="direccion" id="direccion" required>
+
+                                        <label for="telefono">telefono</label>
+                                        <input type="text" name="telefono" id="telefono" required>
+
+                                        <input type="submit" value="CREAR">
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Banner Area End -->
+    <%- include('../../templates/footer'); -%>

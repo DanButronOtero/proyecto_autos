@@ -1,0 +1,60 @@
+<%- include('../../templates/header'); -%>
+    <!-- Banner Area -->
+    <div id="banner" class="banner style-2">
+        <div class="banner-item banner-1 steller-parallax" data-stellar-background-ratio="0.5">
+            <div class="banner-content">
+                <div class="container justify-content-md-center">
+                    <div class="row ">
+                        <div class="col-xs-12">
+                            <div class="banner-text-content text-center wow fadeInUp" data-wow-duration="1.5s">
+                                <h1 class="banner-title ">Crear venta </h1>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="banner-text-content text-center wow fadeInUp" data-wow-duration="1.5s">
+                                <div class="col-md-5 col-xs-12">
+                                    <form action="/ventas/create" class="contact-form" method="post">
+                                        <label for="fecha">fecha</label>
+                                        <input type="date" name="fecha" id="fecha" required>
+
+                                        <label for="id_coche">coche </label>
+                                        <select class="form-control form-control-lg" name="id_coche" id="id_coche" required>
+                                            <% for (let i = 0; i < coches_venta.length; i++){%>
+                                                <option value="<%= coches_venta[i].id%>"><%= coches_venta[i].estado%> | <%= coches_venta[i].unidades%> | <%= coches_venta[i].marca%> | <%= coches_venta[i].modelo%> | <%= coches_venta[i].anio%> | $<%= coches_venta[i].precio%></option>
+                                                <% } %>
+                                        </select>
+
+                                        <label for="id_vendedor">vendedor </label>
+                                        <select class="form-control form-control-lg" name="id_vendedor" id="id_vendedor" required>
+                                            <% for (let i = 0; i < empleados.length; i++){%>
+                                                <option value="<%= empleados[i].id%>"> <%= empleados[i].nombre%> <%= empleados[i].apellido_pat %> <%= empleados[i].apellido_mat %> </option>
+                                                <% } %>
+                                        </select>
+
+                                        <label for="id_cliente">cliente </label>
+                                        <select class="form-control form-control-lg" name="id_cliente" id="id_coche" required>
+                                            <% for (let i = 0; i < clientes.length; i++){%>
+                                                <option value="<%= clientes[i].id%>"> <%= clientes[i].nombre%> <%= clientes[i].apellido_pat %> <%= clientes[i].apellido_mat %></option>
+                                                <% } %>
+                                        </select>
+
+                                        <label for="estado_logico">Estado logico</label>
+                                        <select class="form-control form-control-lg" name="estado_logico" id="estado_logico" required>
+                                            <option>1</option>
+                                            <option>0</option>
+                                        </select>
+
+                                        <input type="submit" value="CREAR">
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Banner Area End -->
+    <%- include('../../templates/footer'); -%>

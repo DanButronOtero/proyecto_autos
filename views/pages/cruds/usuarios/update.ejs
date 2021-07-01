@@ -1,0 +1,43 @@
+<%- include('../../templates/header'); -%>
+    <!-- Banner Area -->
+    <div id="banner" class="banner style-2">
+        <div class="banner-item banner-1 steller-parallax" data-stellar-background-ratio="0.5">
+            <div class="banner-content">
+                <div class="container justify-content-md-center">
+                    <div class="row ">
+                        <div class="col-xs-12">
+                            <div class="banner-text-content text-center wow fadeInUp" data-wow-duration="1.5s">
+                                <h1 class="banner-title ">Crear usuario </h1>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="banner-text-content text-center wow fadeInUp" data-wow-duration="1.5s">
+                                <div class="col-md-5 col-xs-12">
+                                    <form action="/usuarios/update" class="contact-form" method="post">
+                                        <input type="hidden" name="id" value="<%= data.id %>">
+                                        <label for="nombre">usuario</label>
+                                        <input type="text" name="usuario" id="usuario" value="<%= data.usuario%>" required>
+                                        <label for="psswd">password</label>
+                                        <input type="password" name="passwd" id="passwd" value="<%=data.psswd%>" required>
+                                        <label for="id_tipo">tipo de usuario</label>
+                                        <select class="form-control form-control-lg" name="id_tipo" id="id_tipo" required>
+                                            <% for (let i = 0; i < tipos_usuarios.length; i++){%>
+                                                
+                                                <option value="<%= tipos_usuarios[i].id%>"><%= tipos_usuarios[i].tipo%></option>
+                                                <% } %>
+                                        </select>
+
+                                        <input type="submit" value="CREAR">
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Banner Area End -->
+    <%- include('../../templates/footer'); -%>

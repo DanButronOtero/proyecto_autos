@@ -1,0 +1,37 @@
+<%- include('../../templates/header'); -%>
+    <!-- Banner Area -->
+    <div id="banner" class="banner style-2">
+        <div class="banner-item banner-1 steller-parallax" data-stellar-background-ratio="0.5">
+            <div class="banner-content">
+                <div class="container justify-content-md-center">
+                    <div class="row ">
+                        <div class="col-xs-12">
+                            <div class="banner-text-content text-center wow fadeInUp" data-wow-duration="1.5s">
+                                <h1 class="banner-title ">Edit Coche </h1>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="banner-text-content text-center wow fadeInUp" data-wow-duration="1.5s">
+                                <div class="col-md-5 col-xs-12">
+                                    <form action="/tipos_usuarios/update" class="contact-form" method="post">
+                                        <input type="hidden" name="id" value="<%= tipos_usuarios.id %> " required>
+                                        <label for="tipo">Tipo</label>
+                                        <input type="text" name="tipo" id="" value="<%= tipos_usuarios.tipo %> " required>
+                                        <label for="descripcion">Descripcion</label>
+                                        <input type="text" name="descripcion" id="descripcion" value="<%= tipos_usuarios.descripcion %> " required>
+
+
+                                        <input type="submit" value="actualizar">
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Banner Area End -->
+    <%- include('../../templates/footer'); -%>
