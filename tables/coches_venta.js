@@ -2,13 +2,22 @@ const connection = require('../database/database');
 const conn = connection;
 const { Router } = require('express');
 const router = Router();
-
+// if (req.session.user != undefined) {
+//     //
+// } else {
+//     res.redirect('/login');
+// }
 router.get('/coches_venta', (req, res) => {
     let coches;
-    conn.query('select c.id,c.estado,c.unidades,c.precio,m.marca,m.modelo,m.anio from coches_venta c join modelo m on c.id_modelo=m.id where estado_logico =1;', (error, results, fields) => {
-        coches = results;
-        res.render('pages/cruds/coches_venta/coches_venta', { registros: coches });
-    });
+    if (req.session.user != undefined) {
+        conn.query('select c.id,c.estado,c.unidades,c.precio,m.marca,m.modelo,m.anio from coches_venta c join modelo m on c.id_modelo=m.id where estado_logico =1;', (error, results, fields) => {
+            coches = results;
+            res.render('pages/cruds/coches_venta/coches_venta', { registros: coches });
+        });
+    } else {
+        res.redirect('/login');
+    }
+
 
     router.post('/coches_venta/delete', (req, res) => {
         //console.log(req.body.id);
@@ -20,10 +29,16 @@ router.get('/coches_venta', (req, res) => {
     });
 
     router.get('/coches_venta/create', (req, res) => {
-        conn.query('select * from modelo', (error, results, fields) => {
-            //console.log(results);
-            res.render('pages/cruds/coches_venta/create', { modelo: results });
-        });
+        if (req.session.user != undefined) {
+            conn.query('select * from modelo', (error, results, fields) => {
+                //console.log(results);
+                res.render('pages/cruds/coches_venta/create', { modelo: results });
+            });
+        } else {
+            res.redirect('/login');
+        }
+
+
     });
 
     router.post('/coches_venta/create', (req, res) => {
@@ -34,14 +49,19 @@ router.get('/coches_venta', (req, res) => {
         });
     });
     router.get('/coches_venta/update', (req, res) => {
-        conn.query('select * from modelo', (error, results, fields) => {
+        if (req.session.user != undefined) {
+            conn.query('select * from modelo', (error, results, fields) => {
 
-            conn.query(`select * from coches_venta where id=${req.query.id}`, (error, results2, fields) => {
-                //console.log(results2);
-                res.render('pages/cruds/coches_venta/update', { modelo: results, data: results2[0] });
+                conn.query(`select * from coches_venta where id=${req.query.id}`, (error, results2, fields) => {
+                    //console.log(results2);
+                    res.render('pages/cruds/coches_venta/update', { modelo: results, data: results2[0] });
+                });
+
             });
+        } else {
+            res.redirect('/login');
+        }
 
-        });
     });
     router.post('/coches_venta/update', (req, res) => {
 

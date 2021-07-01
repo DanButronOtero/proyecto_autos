@@ -2,11 +2,21 @@ const connection = require('../database/database');
 const conn = connection;
 const { Router } = require('express');
 const router = Router();
-
+// if (req.session.user != undefined) {
+//     //
+// } else {
+//     res.redirect('/login');
+// }
 router.get('/puestos', (req, res) => {
-    connection.query('select * from puestos;', (error, results, fields) => {
-        res.render('pages/cruds/puestos/puestos', { registros: results });
-    });
+    if (req.session.user != undefined) {
+        connection.query('select * from puestos;', (error, results, fields) => {
+            res.render('pages/cruds/puestos/puestos', { registros: results });
+        });
+    } else {
+        res.redirect('/login');
+    }
+
+
 });
 // delete from puestos where id=id;
 router.post('/puestos/delete', (req, res) => {
@@ -16,7 +26,12 @@ router.post('/puestos/delete', (req, res) => {
 });
 
 router.get('/puestos/create', (req, res) => {
-    res.render('pages/cruds/puestos/create');
+    if (req.session.user != undefined) {
+        res.render('pages/cruds/puestos/create');
+    } else {
+        res.redirect('/login');
+    }
+
 });
 
 router.post('/puestos/create', (req, res) => {
@@ -27,10 +42,15 @@ router.post('/puestos/create', (req, res) => {
 });
 
 router.get('/puestos/update', (req, res) => {
-    let query = `select * from puestos where id = ${req.query.id};`;
-    connection.query(query, (error, results, fields) => {
-        res.render('pages/cruds/puestos/update', { puestos: results[0] });
-    });
+    if (req.session.user != undefined) {
+        let query = `select * from puestos where id = ${req.query.id};`;
+        connection.query(query, (error, results, fields) => {
+            res.render('pages/cruds/puestos/update', { puestos: results[0] });
+        });
+    } else {
+        res.redirect('/login');
+    }
+
 });
 
 router.post('/puestos/update', (req, res) => {

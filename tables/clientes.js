@@ -4,16 +4,26 @@ const { Router } = require('express');
 const router = Router();
 
 router.get('/clientes', (req, res) => {
-    conn.query('select * from clientes;', (error, results, fields) => {
-        res.render('pages/cruds/clientes/clientes', { registros: results });
-    });
+    if (req.session.user != undefined) {
+        conn.query('select * from clientes;', (error, results, fields) => {
+            res.render('pages/cruds/clientes/clientes', { registros: results });
+        });
+    } else {
+        res.redirect('/login');
+    }
+
 
 });
 
 router.get('/clientes/create', (req, res) => {
-    conn.query('select * from clientes;', (error, results, fields) => {
-        res.render('pages/cruds/clientes/create');
-    });
+    if (req.session.user != undefined) {
+        conn.query('select * from clientes;', (error, results, fields) => {
+            res.render('pages/cruds/clientes/create');
+        });
+    } else {
+        res.redirect('/login');
+    }
+
 
 });
 router.post('/clientes/create', (req, res) => {
@@ -24,10 +34,14 @@ router.post('/clientes/create', (req, res) => {
 });
 
 router.get('/clientes/update', (req, res) => {
+    if (req.session.user != undefined) {
+        conn.query(`select * from clientes where id=${req.query.id};`, (error, results, fields) => {
+            res.render('pages/cruds/clientes/update', { data: results[0] });
+        });
+    } else {
+        res.redirect('/login');
+    }
 
-    conn.query(`select * from clientes where id=${req.query.id};`, (error, results, fields) => {
-        res.render('pages/cruds/clientes/update', { data: results[0] });
-    });
 
 });
 router.post('/clientes/update', (req, res) => {

@@ -1,0 +1,61 @@
+<%- include('../../templates/header'); -%>
+    <!-- Banner Area -->
+    <div id="banner" class="banner style-2">
+        <div class="banner-item banner-1 steller-parallax" data-stellar-background-ratio="0.5">
+            <div class="banner-content">
+                <div class="container justify-content-md-center">
+                    <div class="row ">
+                        <div class="col-xs-12">
+                            <div class="banner-text-content text-center wow fadeInUp" data-wow-duration="1.5s">
+                                <h1 class="banner-title ">Edit Coche </h1>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="banner-text-content text-center wow fadeInUp" data-wow-duration="1.5s">
+                                <div class="col-md-5 col-xs-12">
+                                    <form action="/reparaciones/create" class="contact-form" method="post">
+                                        <input type="hidden" name="id" value="" required>
+                                        <label for="fecha">fecha</label>
+                                        <input type="date" name="fecha" id="fecha" value="" required>
+                                        <label for="horas">horas</label>
+                                        <input type="number" name="horas" id="horas" min="1" value="1" required>
+
+                                        <label for="id_coche">Coche</label>
+                                        <select class="form-control form-control-lg" name="id_coche" id="id_coche" required>
+                                        <% for (let i = 0; i < coches.length; i++) {%>
+                                            <option value="<%= coches[i].id %>"><%= coches[i].matricula %></option>
+
+                                            <% } %>
+
+                                                </select>
+                                        <label for="id_mecanico">Mecanico</label>
+                                        <select class="form-control form-control-lg" name="id_mecanico" id="id_mecanico" required>
+                                        <% for (let i = 0; i < mecanicos.length; i++) {%>
+                                            <option value="<%= mecanicos[i].id %>"><%= mecanicos[i].nombre %> <%= mecanicos[i].apellido_pat %></option>
+
+                                            <% } %>
+
+                                                </select>
+
+                                        <label for="id_cliente">Cliente</label>
+                                        <select class="form-control form-control-lg" name="id_cliente" id="id_cliente" required>
+                                                <% for (let i = 0; i < clientes.length; i++) {%>
+                                                    <option value="<%= clientes[i].id %>"><%= clientes[i].nombre %> <%= clientes[i].apellido_pat %></option>
+        
+                                                    <% } %>
+        
+                                                        </select>
+                                        <input type="submit" value="CREAR">
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Banner Area End -->
+    <%- include('../../templates/footer'); -%>

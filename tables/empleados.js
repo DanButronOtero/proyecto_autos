@@ -4,21 +4,35 @@ const { Router } = require('express');
 const router = Router();
 const dateFormat = require('dateformat');
 
+// if (req.session.user != undefined) {
+//     //
+// } else {
+//     res.redirect('/login');
+// }
 router.get('/empleados', (req, res) => {
+    if (req.session.user != undefined) {
+        conn.query('select * from empleados;', (error, results, fields) => {
+            console.log(results);
+            res.render('pages/cruds/empleados/empleados', { registros: results });
+        });
 
-    conn.query('select * from empleados;', (error, results, fields) => {
-        console.log(results);
-        res.render('pages/cruds/empleados/empleados', { registros: results });
-    });
+    } else {
+        res.redirect('/login');
+    }
 
 
 });
 
 router.get('/empleados/create', (req, res) => {
-    conn.query('select * from puestos;', (error, results, fields) => {
+    if (req.session.user != undefined) {
+        conn.query('select * from puestos;', (error, results, fields) => {
 
-        res.render('pages/cruds/empleados/create.ejs', { puestos: results });
-    });
+            res.render('pages/cruds/empleados/create.ejs', { puestos: results });
+        });
+    } else {
+        res.redirect('/login');
+    }
+
 
 });
 
@@ -42,19 +56,24 @@ router.post('/empleados/delete', (req, res) => {
 
 
 router.get('/empleados/update', (req, res) => {
-    let query = `select * from empleados where id ="${req.query.id}";`;
+    if (req.session.user != undefined) {
+        let query = `select * from empleados where id ="${req.query.id}";`;
 
-    conn.query('select * from puestos;', (error, results, fields) => {
-        conn.query(query, (error, results2, fields) => {
-            var day = dateFormat(results2[0].contratacion, "yyyy-mm-dd");
-            console.log(day);
-            console.log('RESULTADO empleados');
-            console.log(results2[0].contratacion);
+        conn.query('select * from puestos;', (error, results, fields) => {
+            conn.query(query, (error, results2, fields) => {
+                var day = dateFormat(results2[0].contratacion, "yyyy-mm-dd");
+                console.log(day);
+                console.log('RESULTADO empleados');
+                console.log(results2[0].contratacion);
 
-            res.render('pages/cruds/empleados/update', { puestos: results, data: results2[0], day: day });
+                res.render('pages/cruds/empleados/update', { puestos: results, data: results2[0], day: day });
+            });
+
         });
+    } else {
+        res.redirect('/login');
+    }
 
-    });
 
 
 

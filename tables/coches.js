@@ -3,14 +3,23 @@ const conn = connection;
 const { Router } = require('express');
 const router = Router();
 
-
+// if (req.session.user != undefined) {
+//     //
+// } else {
+//     res.redirect('/login');
+// }
 router.get('/coches', (req, res) => {
-    let coches;
-    conn.query('select c.id,c.matricula,c.no_motor,c.id_modelo,c.estado_logico,m.marca,m.modelo,m.anio from coches as c INNER JOIN modelo as m on c.id_modelo = m.id where estado_logico = 1  order by c.id ;', (error, results, fields) => {
-        coches = results;
-        console.log(results);
-        res.render('pages/cruds/coches/coches', { registros: coches });
-    });
+    if (req.session.user != undefined) {
+        let coches;
+        conn.query('select c.id,c.matricula,c.no_motor,c.id_modelo,c.estado_logico,m.marca,m.modelo,m.anio from coches as c INNER JOIN modelo as m on c.id_modelo = m.id where estado_logico = 1  order by c.id ;', (error, results, fields) => {
+            coches = results;
+            console.log(results);
+            res.render('pages/cruds/coches/coches', { registros: coches });
+        });
+    } else {
+        res.redirect('/login');
+    }
+
 
 
 });
@@ -24,17 +33,22 @@ router.post('/coches/delete', (req, res) => {
 });
 
 router.get('/coches/update', (req, res) => {
-    let query = 'select * from modelo;';
-    let query2 = `select * from coches where id ="${req.query.id}";`;
+    if (req.session.user != undefined) {
+        let query = 'select * from modelo;';
+        let query2 = `select * from coches where id ="${req.query.id}";`;
 
-    conn.query(query2, (error, results, fields) => {
-        let coche = results;
-        conn.query(query, (error, results, fields) => {
-            res.render('pages/cruds/coches/update.ejs', { coche: coche[0], modelo: results });
+        conn.query(query2, (error, results, fields) => {
+            let coche = results;
+            conn.query(query, (error, results, fields) => {
+                res.render('pages/cruds/coches/update.ejs', { coche: coche[0], modelo: results });
+            });
+
         });
+        //res.render('pages/cruds/coches/update.ejs', {});
+    } else {
+        res.redirect('/login');
+    }
 
-    });
-    //res.render('pages/cruds/coches/update.ejs', {});
 });
 router.post('/coches/update', (req, res) => {
 
@@ -46,10 +60,15 @@ router.post('/coches/update', (req, res) => {
 });
 
 router.get('/coches/create', (req, res) => {
-    let query = 'select * from modelo;';
-    conn.query(query, (error, results, fields) => {
-        res.render('pages/cruds/coches/create.ejs', { modelo: results });
-    });
+    if (req.session.user != undefined) {
+        let query = 'select * from modelo;';
+        conn.query(query, (error, results, fields) => {
+            res.render('pages/cruds/coches/create.ejs', { modelo: results });
+        });
+    } else {
+        res.redirect('/login');
+    }
+
 });
 
 router.post('/coches/create', (req, res) => {

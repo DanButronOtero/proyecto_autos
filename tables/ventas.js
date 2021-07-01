@@ -2,11 +2,20 @@ const connection = require('../database/database');
 const conn = connection;
 const { Router } = require('express');
 const router = Router();
-
+// if (req.session.user != undefined) {
+//     //
+// } else {
+//     res.redirect('/login');
+// }
 router.get('/ventas', async(req, res) => {
-    connection.query('select * from ventas;', (error, results, fields) => {
-        res.render('pages/cruds/ventas/ventas', { registros: results });
-    });
+    if (req.session.user != undefined) {
+        connection.query('select * from ventas;', (error, results, fields) => {
+            res.render('pages/cruds/ventas/ventas', { registros: results });
+        });
+    } else {
+        res.redirect('/login');
+    }
+
 });
 
 //delete
@@ -18,18 +27,23 @@ router.post('/ventas/delete', (req, res) => {
 
 //create
 router.get('/ventas/create', (req, res) => {
-    connection.query('select c.id,c.estado,c.unidades,c.precio,m.marca,m.modelo,m.anio from coches_venta c join modelo m on c.id_modelo=m.id;', (error, results, fields) => {
-        connection.query('select * from empleados;', (error, results2, fields) => {
+    if (req.session.user != undefined) {
+        connection.query('select c.id,c.estado,c.unidades,c.precio,m.marca,m.modelo,m.anio from coches_venta c join modelo m on c.id_modelo=m.id;', (error, results, fields) => {
+            connection.query('select * from empleados;', (error, results2, fields) => {
 
-            connection.query('select * from clientes;', (error, results3, fields) => {
-                console.log(results);
-                res.render('pages/cruds/ventas/create', { coches_venta: results, empleados: results2, clientes: results3 });
+                connection.query('select * from clientes;', (error, results3, fields) => {
+                    console.log(results);
+                    res.render('pages/cruds/ventas/create', { coches_venta: results, empleados: results2, clientes: results3 });
 
+                });
             });
+
+
         });
+    } else {
+        res.redirect('/login');
+    }
 
-
-    });
 
 });
 
@@ -42,10 +56,15 @@ router.post('/ventas/create', (req, res) => {
 
 //update
 router.get('/ventas/update', (req, res) => {
-    let query = `select * from ventas where id = ${req.query.id};`;
-    connection.query(query, (error, results, fields) => {
-        res.render('pages/cruds/ventas/update', { empleados: results[0] }, { clientes: results[0] }, { coches_venta: results[0] });
-    });
+    if (req.session.user != undefined) {
+        let query = `select * from ventas where id = ${req.query.id};`;
+        connection.query(query, (error, results, fields) => {
+            res.render('pages/cruds/ventas/update', { empleados: results[0] }, { clientes: results[0] }, { coches_venta: results[0] });
+        });
+    } else {
+        res.redirect('/login');
+    }
+
 });
 
 router.post('/ventas/update', (req, res) => {

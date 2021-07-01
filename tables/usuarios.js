@@ -6,11 +6,21 @@ const crypto = require('crypto');
 
 
 
-
+// if (req.session.user != undefined) {
+//     //
+// } else {
+//     res.redirect('/login');
+// }
 router.get('/usuarios', (req, res) => {
-    connection.query('select * from usuarios;', (error, results, fields) => {
-        res.render('pages/cruds/usuarios/usuarios', { registros: results });
-    });
+    if (req.session.user != undefined) {
+        connection.query('select * from usuarios;', (error, results, fields) => {
+            res.render('pages/cruds/usuarios/usuarios', { registros: results });
+        });
+    } else {
+        res.redirect('/login');
+    }
+
+
 });
 // delete
 router.post('/usuarios/delete', (req, res) => {
@@ -21,9 +31,14 @@ router.post('/usuarios/delete', (req, res) => {
 
 //create
 router.get('/usuarios/create', (req, res) => {
-    connection.query(`select * from tipos_usuarios`, (error, results, fields) => {
-        res.render('pages/cruds/usuarios/create', { tipos_usuarios: results });
-    });
+    if (req.session.user != undefined) {
+        connection.query(`select * from tipos_usuarios`, (error, results, fields) => {
+            res.render('pages/cruds/usuarios/create', { tipos_usuarios: results });
+        });
+    } else {
+        res.redirect('/login');
+    }
+
 
 });
 
@@ -40,15 +55,20 @@ router.post('/usuarios/create', (req, res) => {
 
 //update
 router.get('/usuarios/update', (req, res) => {
-    let query = `select * from usuarios where id = ${req.query.id};`;
+    if (req.session.user != undefined) {
+        let query = `select * from usuarios where id = ${req.query.id};`;
 
-    connection.query(`select * from tipos_usuarios`, (error, results, fields) => {
-        connection.query(query, (error, results2, fields) => {
-            console.log(results2[0]);
-            res.render('pages/cruds/usuarios/update', { tipos_usuarios: results, data: results2[0] });
+        connection.query(`select * from tipos_usuarios`, (error, results, fields) => {
+            connection.query(query, (error, results2, fields) => {
+                console.log(results2[0]);
+                res.render('pages/cruds/usuarios/update', { tipos_usuarios: results, data: results2[0] });
+            });
+
         });
+    } else {
+        res.redirect('/login');
+    }
 
-    });
 });
 
 router.post('/usuarios/update', (req, res) => {

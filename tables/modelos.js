@@ -2,19 +2,33 @@ const connection = require('../database/database');
 const conn = connection;
 const { Router } = require('express');
 const router = Router();
-
+// if (req.session.user != undefined) {
+//     //
+// } else {
+//     res.redirect('/login');
+// }
 router.get('/modelos', (req, res) => {
+    if (req.session.user != undefined) {
+        conn.query('select * from modelo;', (error, results, fields) => {
 
-    conn.query('select * from modelo;', (error, results, fields) => {
+            res.render('pages/cruds/modelos/modelos', { registros: results });
+        });
+    } else {
+        res.redirect('/login');
+    }
 
-        res.render('pages/cruds/modelos/modelos', { registros: results });
-    });
+
 
 
 });
 
 router.get('/modelos/create', (req, res) => {
-    res.render('pages/cruds/modelos/create.ejs');
+    if (req.session.user != undefined) {
+        res.render('pages/cruds/modelos/create.ejs');
+    } else {
+        res.redirect('/login');
+    }
+
 });
 
 router.post('/modelos/create', (req, res) => {
@@ -37,10 +51,15 @@ router.post('/modelos/delete', (req, res) => {
 
 
 router.get('/modelos/update', (req, res) => {
-    let query = `select * from modelo where id ="${req.query.id}";`;
-    conn.query(query, (error, results, fields) => {
-        res.render('pages/cruds/modelos/update.ejs', { modelo: results[0] });
-    });
+    if (req.session.user != undefined) {
+        let query = `select * from modelo where id ="${req.query.id}";`;
+        conn.query(query, (error, results, fields) => {
+            res.render('pages/cruds/modelos/update.ejs', { modelo: results[0] });
+        });
+    } else {
+        res.redirect('/login');
+    }
+
 
 });
 router.post('/modelos/update', (req, res) => {
